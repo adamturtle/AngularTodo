@@ -1,0 +1,7 @@
+app.controller('NewTaskController', function ($scope, tasksService) {
+    $scope.addTask = function (e) {
+        e.preventDefault()
+        tasksService.tasks.push({name: $scope.tasks.newTask, done: false})
+        $scope.tasks.newTask = ''
+    }
+})

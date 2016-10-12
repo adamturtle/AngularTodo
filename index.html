@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Angular ToDo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <style>
+        .row {
+            margin-bottom: 40px;
+        }
+        .done {
+            text-decoration: line-through;
+        }
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body ng-app="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h1>ToDo App</h1>
+                <hr>
+
+                <form action="" method="POST" class="form-inline" role="form" ng-controller="NewTaskController">
+                    <h4>Add a Task</h4>
+                    <div class="form-group">
+                        <label class="sr-only" for="newTask">Add Task</label>
+                        <input type="text" class="form-control" name="newTask" placeholder="Add Task" ng-model="tasks.newTask">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" ng-click="addTask($event)">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3" ng-controller="TasksController">
+                <h4>Current Tasks ({{ tasks.remaining() }})</h4>
+                <ul class="list-group">
+                    <li ng-repeat="task in tasks.tasks | filter:true" class="list-group-item" ng-class="{'disabled':task.done}">
+                        <label ng-class="{'done':task.done}">
+                            <input type="checkbox" name="completed" ng-model="task.done">
+                            &nbsp;{{ task.name }}
+                        </label>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>Show</li>
+                    <li><a href="#" ng-click="setFilter()">All</a></li>
+                    <li><a href="#" ng-click="setFilter('completed')">Completed</a></li>
+                    <li><a href="#" ng-click="setFilter('remaining')">Remaining</a></li>
+                </ul><!-- /.list-inline -->
+            </div><!-- /.col-sm-6 col-sm-offset-3 -->
+        </div><!-- /.row -->
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/tasksService.js"></script>
+    <script src="js/tasksController.js"></script>
+    <script src="js/newTaskController.js"></script>
+</body>
+</html>
