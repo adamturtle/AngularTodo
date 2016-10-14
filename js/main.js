@@ -1,1 +1,3 @@
-let app = angular.module('app', [])
+(function () {
+    angular.module('app', [])
+}) ()
