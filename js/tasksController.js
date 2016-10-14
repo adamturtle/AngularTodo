@@ -4,7 +4,7 @@ app.controller('TasksController', function ($scope, tasksService) {
     $scope.filterName = ''
 
     $scope.setFilter = function (filter) {
-    	$scope.filterName = filter            	            
+    	$scope.filterName = filter
         if (filter) {
         	if (filter === 'completed') {
             	return $scope.filter = { done: true }
@@ -15,4 +15,5 @@ app.controller('TasksController', function ($scope, tasksService) {
         }
         return $scope.filter = ''
     }
+
 })
