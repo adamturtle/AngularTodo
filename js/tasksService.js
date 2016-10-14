@@ -1,18 +1,20 @@
 app.factory('tasksService', function () {
-    let tasks = angular.fromJson(localStorage.getItem('tasks') || "[]")
+    const STORAGE = sessionStorage
+    const STORAGE_KEY = "tasks"
+    const defaultTasks = [
+        {name: 'Task One', done: false},
+        {name: 'Task Two', done: false},
+        {name: 'Task Three', done: false},
+    ]
+
+    let tasks = angular.fromJson(STORAGE.getItem(STORAGE_KEY) || defaultTasks)
 
     let _save = function (data) {
-        localStorage.setItem('tasks', angular.toJson(data))
+        STORAGE.setItem(STORAGE_KEY, angular.toJson(data))
     }
 
     return {
         data: tasks,
-        // data: [
-        //     { name: 'Task One', done: false },
-        //     { name: 'Task Two', done: false },
-        //     { name: 'Task Three', done: true },
-        //     { name: 'Task Four', done: false }
-        // ],
 
         addTask: function (task) {
             this.data.push(task)
