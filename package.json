@@ -2,7 +2,7 @@
   "name": "angular-todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-wrap": "^0.13.0",
+    "laravel-elixir": "^6.0.0-11",
+    "laravel-elixir-rollup-official": "^1.1.0"
   }
 }

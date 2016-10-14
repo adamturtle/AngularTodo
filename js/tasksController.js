@@ -1,9 +1,8 @@
-(function () {
     angular.module('app')
     .controller('TasksController', ['$scope', 'tasksService', function ($scope, tasksService) {
         $scope.tasks = tasksService
         $scope.filter = ''
-        $scope.filterName = ''
+        $scope.filterName = 'completed'
 
         $scope.setFilter = function (filter) {
             $scope.filterName = filter
@@ -18,4 +17,3 @@
             return $scope.filter = ''
         }
     }])
-})()

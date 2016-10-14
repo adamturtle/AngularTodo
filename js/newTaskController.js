@@ -1,4 +1,3 @@
-(function () {
     angular.module('app')
     .controller('NewTaskController', ['$scope', 'tasksService', function ($scope, tasksService) {
         $scope.addTask = function (e) {
@@ -7,4 +6,3 @@
             $scope.tasks.newTask = ''
         }
     }])
-})()

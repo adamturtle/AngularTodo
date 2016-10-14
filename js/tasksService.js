@@ -1,4 +1,3 @@
-(function () {
     angular.module('app')
     .factory('tasksService', function () {
         const STORAGE = sessionStorage
@@ -40,4 +39,3 @@
             }
         }
     })
-})()
