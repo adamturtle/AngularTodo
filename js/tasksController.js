@@ -6,13 +6,13 @@
 
         $scope.setFilter = function (filter) {
             $scope.filterName = filter
-            if (filter) {
-                if (filter === 'completed') {
+            switch (filter) {
+                case 'completed':
                     return $scope.filter = { done: true }
-                }
-                else if (filter === 'remaining') {
+                    break
+                case 'remaining':
                     return $scope.filter = { done: false }
-                }
+                    break
             }
             return $scope.filter = ''
         }
