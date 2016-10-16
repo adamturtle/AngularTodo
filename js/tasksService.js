@@ -5,7 +5,7 @@
         const defaultTasks = [
             {name: 'Task One', done: false},
             {name: 'Task Two', done: false},
-            {name: 'Task Three', done: false},
+            {name: 'Task Three', done: false}
         ]
 
         let tasks = angular.fromJson(STORAGE.getItem(STORAGE_KEY) || defaultTasks)

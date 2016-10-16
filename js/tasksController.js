@@ -2,7 +2,7 @@
     .controller('TasksController', ['$scope', 'tasksService', function ($scope, tasksService) {
         $scope.tasks = tasksService
         $scope.filter = ''
-        $scope.filterName = 'completed'
+        $scope.filterName = ''
 
         $scope.setFilter = function (filter) {
             $scope.filterName = filter
