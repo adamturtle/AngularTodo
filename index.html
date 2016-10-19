@@ -61,7 +61,7 @@
                 </ul><!-- /.list-inline -->
 
                 <ul class="list-group">
-                    <li ng-repeat="task in tasks.data | filter:filter" class="list-group-item" ng-class="{'disabled':task.done}">
+                    <li ng-repeat="task in tasks.data | filter:filter as filtered" class="list-group-item" ng-class="{'disabled':task.done}">
                         <label ng-class="{'done':task.done}">
                             <input type="checkbox" name="completed" ng-model="task.done" ng-change="tasks.toggleCompleted($index)">
                             &nbsp;{{ task.name }}
@@ -69,6 +69,11 @@
                         </label>
                     </li>
                 </ul>
+
+                <div class="alert alert-warning" ng-show="!filtered.length">
+                    <p>No tasks to display</p>
+                </div><!-- /.alert -->
+
             </div><!-- /.col-sm-6 col-sm-offset-3 -->
         </div><!-- /.row -->
     </div>
