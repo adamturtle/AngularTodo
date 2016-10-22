@@ -44,28 +44,28 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3" ng-controller="TasksController">
-                <h4>Current Tasks ({{ tasks.remaining() }} remaining)</h4>
+            <div class="col-sm-6 col-sm-offset-3" ng-controller="TasksController as taskCtrl">
+                <h4>Current Tasks ({{ taskCtrl.tasks.remaining() }} remaining)</h4>
 
                 <ul class="list-inline">
                     <li class="list-inline-item ">Show</li>
-                    <li class="list-inline-item ">
-                        <a class="label label-default" ng-class="{'label-primary': !filterName}" ng-click="setFilter()">All</a>
+                    <li class="list-inline-item">
+                        <a class="label label-default" ng-class="{'label-primary': !taskCtrl.filterName}" ng-click="taskCtrl.setFilter()">All</a>
                     </li>
                     <li class="list-inline-item ">
-                        <a class="label label-default" ng-click="setFilter('completed')" ng-class="{'label-primary':filterName=='completed'}">Completed</a>
+                        <a class="label label-default" ng-click="taskCtrl.setFilter('completed')" ng-class="{'label-primary':taskCtrl.filterName=='completed'}">Completed</a>
                     </li>
                     <li class="list-inline-item ">
-                        <a class="label label-default" ng-class="{'label-primary': filterName=='remaining'}" ng-click="setFilter('remaining')">Remaining</a>
+                        <a class="label label-default" ng-class="{'label-primary': taskCtrl.filterName=='remaining'}" ng-click="taskCtrl.setFilter('remaining')">Remaining</a>
                     </li>
                 </ul><!-- /.list-inline -->
 
                 <ul class="list-group">
-                    <li ng-repeat="task in tasks.data | filter:filter as filtered" class="list-group-item" ng-class="{'disabled':task.done}">
+                    <li ng-repeat="task in taskCtrl.tasks.data | filter:taskCtrl.filter as filtered" class="list-group-item" ng-class="{'disabled':task.done}">
                         <label ng-class="{'done':task.done}">
-                            <input type="checkbox" name="completed" ng-model="task.done" ng-change="tasks.toggleCompleted($index)">
+                            <input type="checkbox" name="completed" ng-model="task.done" ng-change="taskCtrl.tasks.toggleCompleted($index)">
                             &nbsp;{{ task.name }}
-                            <a ng-click="tasks.removeTask($index)" class="close">&times;</a>
+                            <a ng-click="taskCtrl.tasks.removeTask($index)" class="close">&times;</a>
                         </label>
                     </li>
                 </ul>

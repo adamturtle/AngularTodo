@@ -1,19 +1,18 @@
-    angular.module('app')
+'use strict'
+angular.module('app')
     .controller('TasksController', ['$scope', 'tasksService', function ($scope, tasksService) {
-        $scope.tasks = tasksService
-        $scope.filter = ''
-        $scope.filterName = ''
-
-        $scope.setFilter = function (filter) {
-            $scope.filterName = filter
+        let vm = this
+        vm.tasks = tasksService
+        vm.filter = ''
+        vm.filterName = ''
+        vm.setFilter = function (filter) {
+            vm.filterName = filter
             switch (filter) {
                 case 'completed':
-                    return $scope.filter = { done: true }
-                    break
+                    return (vm.filter = { done: true })
                 case 'remaining':
-                    return $scope.filter = { done: false }
-                    break
+                    return (vm.filter = { done: false })
             }
-            return $scope.filter = ''
+            return (vm.filter = '')
         }
     }])
