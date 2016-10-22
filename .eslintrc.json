@@ -1,0 +1,14 @@
+{
+    "extends": "standard",
+    "installedESLint": true,
+    "plugins": [
+        "standard",
+        "promise"
+    ],
+    "globals": {
+        "angular": true
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }]
+    }
+}
